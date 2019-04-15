@@ -1,6 +1,7 @@
 package StepDefos;
 
 import POM.*;
+import Properties.Property;
 import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -28,7 +29,7 @@ public class StepDefinitions {
 
     @Before
     public void BeforeTest() throws Throwable{
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Patryk\\Desktop\\Semestr 5\\ATWIN\\geckodriver.exe");
+        System.setProperty(Property.WebDriverName, Property.WebDriverPath);
         driver= new FirefoxDriver();
         driver.manage().window().maximize();
         pageHome = new PageObjectHome(driver);
