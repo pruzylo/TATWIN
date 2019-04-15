@@ -38,7 +38,7 @@ public class StepDefinitions {
 
     @After
     public void AfterTest() throws Throwable{
-        driver.quit();
+        driver.close();
     }
 
     @Given("^User opens pracuj$")
