@@ -9,8 +9,8 @@
         <module name="ogurasek" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ogurasek" target="1.5" />
+    <bytecodeTargetLevel target="11">
+      <module name="ogurasek" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -7,8 +7,9 @@ import org.junit.runner.RunWith;
 
  @RunWith(Cucumber.class)
     @CucumberOptions(
-            features = {"src\\test\\java\\Feature\\Search_Text.feature"},
-            glue = {"StepDefos"}
+            features = {"src\\test\\java\\Feature\\PracujPl.feature"},
+            glue = {"StepDefos"},
+            tags = {"@Test2"}
     )
  public class TestRunner {
 

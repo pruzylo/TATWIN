@@ -21,14 +21,14 @@ public class StepDefinitions {
 
     WebDriver driver;
     WebDriverWait wait;
+
+
     public PageObjectHome pageHome;
     public PageObjectLogin pageLogin;
     public PageObjectAfterLogin pageAfterLogin;
 
-    String username = "test", password = "test";
-
     @Before
-    public void BeforeTest() throws Throwable{
+    public void BeforeTest() {
         System.setProperty(Property.WebDriverName, Property.WebDriverPath);
         driver= new FirefoxDriver();
         driver.manage().window().maximize();
@@ -36,62 +36,38 @@ public class StepDefinitions {
         wait = new WebDriverWait(driver, 5);
     }
 
-    @After
-    public void AfterTest() throws Throwable{
-        driver.close();
-    }
-
-    @Given("^User opens pracuj$")
-    public void user_opens_pracuj() throws Throwable {
+    @Given("^User opens pracuj\\.pl$")
+    public void user_opens_pracuj_pl() throws Throwable {
         driver.get("http://pracuj.pl");
-        System.out.println("open page");
-
     }
 
-    @When("^User clicks on login$")
-    public void user_clicks_on_login() throws Throwable {
-        pageLogin = pageHome.loginClick();
+    @When("^User logs in$")
+    public void user_logs_in() throws Throwable {
+        PageObjectLogin pageLogin = pageHome.loginClick();
+        pageAfterLogin = pageLogin.loginUser(Property.username,Property.password);
     }
 
-    @When("^User provides credentials$")
-    public void user_provides_credentials() throws Throwable {
-        pageLogin.loginUser(username,password);
+    @When("^User moves to professional profile$")
+    public void user_moves_to_professional_prifle() throws Throwable {
+        wait.until(ExpectedConditions.visibilityOf(pageAfterLogin.zawodowy)).click();
     }
 
-    @When("^User clicks on login button")
-    public void user_clicks_on_login_button() throws Throwable {
-        Thread.sleep(2000);
+    @Then("^user is on professional profile page$")
+    public void user_is_on_professional_profile_page() throws Throwable {
+        Assert.assertEquals(driver.getCurrentUrl(),"https://profil.pracuj.pl/");
+    }
 
+    @Then("^page is closed$")
+    public void page_is_closed() throws Throwable {
+        driver.close();
     }
 
     @Then("^user is logged in$")
     public void user_is_logged_in() throws Throwable {
-         {
-             Verify.verify("https://www.pracuj.pl/apps/#/konto/rekomendowane-oferty" == driver.getCurrentUrl());}
-        }
 
-//2
-
-    @Given("^User otwiera pracuj\\.pl i loguje się$")
-    public void user_otwiera_pracuj_pl_i_loguje_się() throws Throwable {
-        driver.get("https://www.pracuj.pl");
-        pageLogin = pageHome.loginClick();
+             Assert.assertEquals("https://www.pracuj.pl/apps/#/konto/rekomendowane-oferty", driver.getCurrentUrl());
     }
 
-    @When("^User sie loguje$")
-    public void user_sie_loguje() throws Throwable {
-         pageAfterLogin = pageLogin.loginUser(username,password);
-    }
-
-    @When("^User wchodzi w profil zawodowy$")
-    public void user_wchodzi_w_profil_zawodowy() throws Throwable {
-        Thread.sleep(2000);
-        wait.until(ExpectedConditions.visibilityOf(pageAfterLogin.zawodowy)).click();
-    }
-
-    @Then("^profil zawodowy$")
-    public void zamyka() throws Throwable {
-        Assert.assertEquals(driver.getCurrentUrl(),"https://profil.pracuj.pl/");
-        Thread.sleep(1500);
-    }
 }
+
+
