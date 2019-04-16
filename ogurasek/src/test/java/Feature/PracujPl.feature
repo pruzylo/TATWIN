@@ -14,3 +14,11 @@ When User logs in
 And User moves to professional profile
 Then user is on professional profile page
 And page is closed
+
+@Test3
+Scenario: User can change password
+Given User opens pracuj.pl
+When User logs in
+Then User moves to settings
+And User moves to profile settings
+And User changes password

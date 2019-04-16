@@ -12,28 +12,37 @@ import io.cucumber.messages.com.google.common.base.Verify;
 import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class StepDefinitions {
 
     WebDriver driver;
     WebDriverWait wait;
-
+    public JavascriptExecutor js;
 
     public PageObjectHome pageHome;
     public PageObjectLogin pageLogin;
     public PageObjectAfterLogin pageAfterLogin;
+    public PageObjectProfileSettings pageProfileSettings;
+
 
     @Before
     public void BeforeTest() {
         System.setProperty(Property.WebDriverName, Property.WebDriverPath);
         driver= new FirefoxDriver();
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15,TimeUnit.SECONDS);
         pageHome = new PageObjectHome(driver);
         wait = new WebDriverWait(driver, 5);
+        js = (JavascriptExecutor) driver;
     }
 
     @Given("^User opens pracuj\\.pl$")
@@ -66,6 +75,22 @@ public class StepDefinitions {
     public void user_is_logged_in() throws Throwable {
 
              Assert.assertEquals("https://www.pracuj.pl/apps/#/konto/rekomendowane-oferty", driver.getCurrentUrl());
+    }
+
+    @Then("^User moves to settings$")
+    public void user_moves_to_settings() throws Throwable {
+        pageProfileSettings = pageAfterLogin.settingsClick();
+    }
+
+    @Then("^User moves to profile settings$")
+    public void user_moves_to_profile_settings() throws Throwable {
+        pageProfileSettings.accountTab.click();
+    }
+
+    @Then("^User changes password$")
+    public void user_changes_password() throws Throwable {
+        js.executeScript("arguments[0].scrollIntoView();", pageProfileSettings.oldPasswordTxt);
+        pageProfileSettings.changePassword("oldPwd", "newPwd");
     }
 
 }
