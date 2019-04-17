@@ -11,6 +11,7 @@ import gherkin.lexer.Th;
 import io.cucumber.messages.com.google.common.base.Verify;
 import org.junit.After;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -31,6 +32,7 @@ public class StepDefinitions {
     public PageObjectAfterLogin pageAfterLogin;
     public PageObjectProfileSettings pageProfileSettings;
     public PageObjectProfileSettingsAccount pageProfileSettingsAccount;
+    public PageObjectDocuments pageDocuments;
 
 
     @Before
@@ -53,8 +55,9 @@ public class StepDefinitions {
 
     @When("^User logs in$")
     public void user_logs_in() throws Throwable {
-        PageObjectLogin pageLogin = pageHome.loginClick();
+        pageLogin = pageHome.loginClick();
         pageAfterLogin = pageLogin.loginUser(Property.username,Property.password);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='onesignal-popover-cancel-button']"))).click();
     }
 
     @When("^User moves to professional profile$")
@@ -69,7 +72,8 @@ public class StepDefinitions {
 
     @Then("^page is closed$")
     public void page_is_closed() throws Throwable {
-        driver.close();
+        Thread.sleep(1500);
+        driver.quit();
     }
 
     @Then("^user is logged in$")
@@ -92,6 +96,22 @@ public class StepDefinitions {
     public void user_changes_password() throws Throwable {
         js.executeScript("arguments[0].scrollIntoView();", pageProfileSettingsAccount.oldPasswordTxt);
         pageProfileSettingsAccount.changePassword("oldPwd", "newPwd");
+    }
+
+    @Then("^User moves to documents")
+    public void user_moves_to_documents() throws Throwable {
+        //pageDocuments = pageAfterLogin.ProfileDropListDocumentsClick();
+        pageDocuments = pageAfterLogin.SideMenuDocumentsClick();
+    }
+
+    @Then("^User is on Documents page")
+    public void user_is_on_Documents_page() throws Throwable {
+        Assert.assertEquals("https://www.pracuj.pl/apps/#/konto/cv-i-inne-dokumenty", driver.getCurrentUrl());
+    }
+
+    @Then("^User can delete document")
+    public void user_can_delete_document() throws Throwable {
+        pageDocuments.DeleteDocTry();
     }
 
 }

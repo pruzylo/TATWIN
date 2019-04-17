@@ -25,4 +25,10 @@ And User changes password
 And page is closed
 
 @Test4
-Scenario: User
+Scenario: User can upload documents
+Given User opens pracuj.pl
+When User logs in
+Then User moves to documents
+And User is on Documents page
+And User can delete document
+And page is closed
