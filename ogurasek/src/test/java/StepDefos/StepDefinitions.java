@@ -17,8 +17,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.concurrent.TimeUnit;
+
 
 public class StepDefinitions {
 
@@ -30,6 +30,7 @@ public class StepDefinitions {
     public PageObjectLogin pageLogin;
     public PageObjectAfterLogin pageAfterLogin;
     public PageObjectProfileSettings pageProfileSettings;
+    public PageObjectProfileSettingsAccount pageProfileSettingsAccount;
 
 
     @Before
@@ -84,13 +85,13 @@ public class StepDefinitions {
 
     @Then("^User moves to profile settings$")
     public void user_moves_to_profile_settings() throws Throwable {
-        pageProfileSettings.accountTab.click();
+        pageProfileSettingsAccount = pageProfileSettings.accountTabClick();
     }
 
     @Then("^User changes password$")
     public void user_changes_password() throws Throwable {
-        js.executeScript("arguments[0].scrollIntoView();", pageProfileSettings.oldPasswordTxt);
-        pageProfileSettings.changePassword("oldPwd", "newPwd");
+        js.executeScript("arguments[0].scrollIntoView();", pageProfileSettingsAccount.oldPasswordTxt);
+        pageProfileSettingsAccount.changePassword("oldPwd", "newPwd");
     }
 
 }
