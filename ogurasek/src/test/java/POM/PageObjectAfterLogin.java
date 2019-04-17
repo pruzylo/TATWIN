@@ -16,6 +16,12 @@ public class PageObjectAfterLogin extends PageObject{
     @FindBy(xpath = "//a[@data-test='settingsTab']")
     public WebElement settingsBtn;
 
+    @FindBy(xpath = "//a[@data-test='userAccount']")
+    public WebElement profileDropList;
+
+    @FindBy(xpath = "//a[@data-shared-ga='menu##userMenu##cv']")
+    public WebElement profileDropListDocuments;
+
     public void zawodowyClick(){
         zawodowy.click();
     }
@@ -23,6 +29,12 @@ public class PageObjectAfterLogin extends PageObject{
     public PageObjectProfileSettings settingsClick(){
         settingsBtn.click();
         return new PageObjectProfileSettings(driver);
+    }
+
+    public PageObjectDocuments ProfileDropListDocumentsClick(){
+        profileDropList.click();
+        profileDropListDocuments.click();
+        return new PageObjectDocuments(driver);
     }
 
 }

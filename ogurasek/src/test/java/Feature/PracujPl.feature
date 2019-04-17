@@ -22,3 +22,7 @@ When User logs in
 Then User moves to settings
 And User moves to profile settings
 And User changes password
+And page is closed
+
+@Test4
+Scenario: User
