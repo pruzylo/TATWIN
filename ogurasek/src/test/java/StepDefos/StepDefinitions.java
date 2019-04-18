@@ -44,7 +44,7 @@ public class StepDefinitions {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(15,TimeUnit.SECONDS);
         pageHome = new PageObjectHome(driver);
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 10);
         js = (JavascriptExecutor) driver;
     }
 
@@ -100,8 +100,8 @@ public class StepDefinitions {
 
     @Then("^User moves to documents")
     public void user_moves_to_documents() throws Throwable {
-        //pageDocuments = pageAfterLogin.ProfileDropListDocumentsClick();
-        pageDocuments = pageAfterLogin.SideMenuDocumentsClick();
+        pageDocuments = pageAfterLogin.ProfileDropListDocumentsClick();
+        //pageDocuments = pageAfterLogin.SideMenuDocumentsClick();
     }
 
     @Then("^User is on Documents page")

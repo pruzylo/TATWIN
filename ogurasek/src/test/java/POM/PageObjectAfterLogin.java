@@ -14,7 +14,7 @@ public class PageObjectAfterLogin extends PageObject{
     public PageObjectAfterLogin(WebDriver driver) {
         super(driver);
     }
-    WebDriverWait wait  = new WebDriverWait(driver, 5);
+    WebDriverWait wait  = new WebDriverWait(driver, 10);
     Actions a = new Actions(driver);
     @FindBy(xpath = "//a[@data-test='userProfileTab']")
     public WebElement zawodowy;
@@ -22,7 +22,7 @@ public class PageObjectAfterLogin extends PageObject{
     @FindBy(xpath = "//a[@data-test='settingsTab']")
     public WebElement settingsBtn;
 
-    @FindBy(xpath = "//span[@data-test='userAccount']")
+    @FindBy(xpath = "//*[@data-test='userAccount']")
     public WebElement profileDropList;
 
     @FindBy(xpath = "//a[@data-shared-ga='menu##userMenu##cv']")
@@ -40,8 +40,9 @@ public class PageObjectAfterLogin extends PageObject{
         return new PageObjectProfileSettings(driver);
     }
 
-    public PageObjectDocuments ProfileDropListDocumentsClick(){
-        wait.until(ExpectedConditions.visibilityOf(profileDropList)).click();
+    public PageObjectDocuments ProfileDropListDocumentsClick() throws InterruptedException {
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(profileDropList)).click();
         profileDropListDocuments.click();
         return new PageObjectDocuments(driver);
     }
