@@ -15,7 +15,7 @@ public class PageObjectAfterLogin extends PageObject{
         super(driver);
     }
     WebDriverWait wait  = new WebDriverWait(driver, 10);
-    Actions a = new Actions(driver);
+
     @FindBy(xpath = "//a[@data-test='userProfileTab']")
     public WebElement zawodowy;
 
@@ -30,6 +30,9 @@ public class PageObjectAfterLogin extends PageObject{
 
     @FindBy(xpath = "//a[@data-test='myFilesTab']")
     public WebElement sideMenuDocuments;
+
+    @FindBy(xpath = "//a[@data-shared-ga='menu##menu##oferty_pracy']")
+    public WebElement offersTab;
 
     public void zawodowyClick(){
         zawodowy.click();
@@ -50,6 +53,11 @@ public class PageObjectAfterLogin extends PageObject{
     public PageObjectDocuments SideMenuDocumentsClick(){
         wait.until(ExpectedConditions.visibilityOf(sideMenuDocuments)).click();
         return new PageObjectDocuments(driver);
+    }
+
+    public PageObjectOffers OffersClick(){
+        offersTab.click();
+        return new PageObjectOffers(driver);
     }
 
 }

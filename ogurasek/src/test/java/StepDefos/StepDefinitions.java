@@ -33,6 +33,7 @@ public class StepDefinitions {
     public PageObjectProfileSettings pageProfileSettings;
     public PageObjectProfileSettingsAccount pageProfileSettingsAccount;
     public PageObjectDocuments pageDocuments;
+    public PageObjectOffers pageOffers;
 
 
     @Before
@@ -41,10 +42,10 @@ public class StepDefinitions {
         driver= new FirefoxDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(15,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(7,TimeUnit.SECONDS);
         pageHome = new PageObjectHome(driver);
-        wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, 3);
         js = (JavascriptExecutor) driver;
     }
 
@@ -57,7 +58,11 @@ public class StepDefinitions {
     public void user_logs_in() throws Throwable {
         pageLogin = pageHome.loginClick();
         pageAfterLogin = pageLogin.loginUser(Property.username,Property.password);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='onesignal-popover-cancel-button']"))).click();
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='onesignal-popover-cancel-button']"))).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @When("^User moves to professional profile$")
@@ -112,6 +117,22 @@ public class StepDefinitions {
     @Then("^User can delete document")
     public void user_can_delete_document() throws Throwable {
         pageDocuments.DeleteDocTry();
+    }
+
+    @When("^User moves to offers$")
+    public void user_moves_to_offers() throws Throwable {
+        pageOffers = pageAfterLogin.OffersClick();
+    }
+
+    @Then("^User is on Offers page$")
+    public void user_is_on_Offers_page() throws Throwable {
+        pageOffers.assertUrl();
+    }
+
+    @Then("^User can filter$")
+    public void user_can_filter() throws Throwable {
+        pageOffers.filterCategory();
+        pageOffers.filterPosition();
     }
 
 }
