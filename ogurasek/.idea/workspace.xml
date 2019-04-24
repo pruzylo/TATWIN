@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51fd7ba2-ea3b-4221-90c7-0d63a97292ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectOffers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Feature/PracujPl.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Feature/PracujPl.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectAfterLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectAfterLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/StepDefos/StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StepDefos/StepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunners/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunners/TestRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/POM/PageObjectAfterLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/POM/PageObjectAfterLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/StepDefos/StepDefinitions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/StepDefos/StepDefinitions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestRunners/TestRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestRunners/TestRunner.class" afterDir="false" />
@@ -285,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555360413563</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="5th scenario done">
+      <created>1556139903655</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556139903655</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -322,7 +324,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27132195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -333,7 +334,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49733475" visible="true" weight="0.3281412" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.3281412" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -354,7 +355,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dodanie pliku property" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie pliku property" />
+    <MESSAGE value="5th scenario done" />
+    <option name="LAST_COMMIT_MESSAGE" value="5th scenario done" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ogurasek.iml">
