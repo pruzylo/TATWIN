@@ -135,6 +135,11 @@ public class StepDefinitions {
         pageOffers.filterPosition();
     }
 
+    @Then("^User can add offer to favourites")
+    public void user_can_add_offer_to_favourites() throws Throwable {
+        pageOffers.addToFav();
+    }
+
 }
 
 

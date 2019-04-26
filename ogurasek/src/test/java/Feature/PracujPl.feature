@@ -41,3 +41,12 @@ And User moves to offers
 Then User is on Offers page
 And User can filter
 And page is closed
+
+@Test6
+Scenario: User can choose offer
+Given User opens pracuj.pl
+When User logs in
+And User moves to offers
+Then User is on Offers page
+And User can add offer to favourites
+And page is closed
