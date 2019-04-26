@@ -61,7 +61,7 @@ public class StepDefinitions {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='onesignal-popover-cancel-button']"))).click();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("no popup occured");
         }
     }
 
