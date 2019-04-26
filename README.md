@@ -1,7 +1,7 @@
 # TATWIN
 Projekt testu automatycznego dla pracuj.pl Selenium + Cucumber
 
-Patryk Rużyło - https://www.pracuj.pl/
+Testowana witryna : https://www.pracuj.pl/
 
 1. Logowanie
 Jako użytkownik mogę zalogować się do systemu aby mieć dostęp do danych mojego konta.

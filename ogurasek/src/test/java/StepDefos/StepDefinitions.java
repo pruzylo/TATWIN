@@ -11,14 +11,15 @@ import gherkin.lexer.Th;
 import io.cucumber.messages.com.google.common.base.Verify;
 import org.junit.After;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.concurrent.TimeUnit;
+
 
 public class StepDefinitions {
 
@@ -30,6 +31,9 @@ public class StepDefinitions {
     public PageObjectLogin pageLogin;
     public PageObjectAfterLogin pageAfterLogin;
     public PageObjectProfileSettings pageProfileSettings;
+    public PageObjectProfileSettingsAccount pageProfileSettingsAccount;
+    public PageObjectDocuments pageDocuments;
+    public PageObjectOffers pageOffers;
 
 
     @Before
@@ -38,10 +42,10 @@ public class StepDefinitions {
         driver= new FirefoxDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(15,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(7,TimeUnit.SECONDS);
         pageHome = new PageObjectHome(driver);
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 3);
         js = (JavascriptExecutor) driver;
     }
 
@@ -52,8 +56,13 @@ public class StepDefinitions {
 
     @When("^User logs in$")
     public void user_logs_in() throws Throwable {
-        PageObjectLogin pageLogin = pageHome.loginClick();
+        pageLogin = pageHome.loginClick();
         pageAfterLogin = pageLogin.loginUser(Property.username,Property.password);
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='onesignal-popover-cancel-button']"))).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @When("^User moves to professional profile$")
@@ -68,7 +77,8 @@ public class StepDefinitions {
 
     @Then("^page is closed$")
     public void page_is_closed() throws Throwable {
-        driver.close();
+        Thread.sleep(1500);
+        driver.quit();
     }
 
     @Then("^user is logged in$")
@@ -84,13 +94,45 @@ public class StepDefinitions {
 
     @Then("^User moves to profile settings$")
     public void user_moves_to_profile_settings() throws Throwable {
-        pageProfileSettings.accountTab.click();
+        pageProfileSettingsAccount = pageProfileSettings.accountTabClick();
     }
 
     @Then("^User changes password$")
     public void user_changes_password() throws Throwable {
-        js.executeScript("arguments[0].scrollIntoView();", pageProfileSettings.oldPasswordTxt);
-        pageProfileSettings.changePassword("oldPwd", "newPwd");
+        js.executeScript("arguments[0].scrollIntoView();", pageProfileSettingsAccount.oldPasswordTxt);
+        pageProfileSettingsAccount.changePassword("oldPwd", "newPwd");
+    }
+
+    @Then("^User moves to documents")
+    public void user_moves_to_documents() throws Throwable {
+        pageDocuments = pageAfterLogin.ProfileDropListDocumentsClick();
+        //pageDocuments = pageAfterLogin.SideMenuDocumentsClick();
+    }
+
+    @Then("^User is on Documents page")
+    public void user_is_on_Documents_page() throws Throwable {
+        Assert.assertEquals("https://www.pracuj.pl/apps/#/konto/cv-i-inne-dokumenty", driver.getCurrentUrl());
+    }
+
+    @Then("^User can delete document")
+    public void user_can_delete_document() throws Throwable {
+        pageDocuments.DeleteDocTry();
+    }
+
+    @When("^User moves to offers$")
+    public void user_moves_to_offers() throws Throwable {
+        pageOffers = pageAfterLogin.OffersClick();
+    }
+
+    @Then("^User is on Offers page$")
+    public void user_is_on_Offers_page() throws Throwable {
+        pageOffers.assertUrl();
+    }
+
+    @Then("^User can filter$")
+    public void user_can_filter() throws Throwable {
+        pageOffers.filterCategory();
+        pageOffers.filterPosition();
     }
 
 }

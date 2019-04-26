@@ -22,3 +22,22 @@ When User logs in
 Then User moves to settings
 And User moves to profile settings
 And User changes password
+And page is closed
+
+@Test4
+Scenario: User can upload documents
+Given User opens pracuj.pl
+When User logs in
+Then User moves to documents
+And User is on Documents page
+And User can delete document
+And page is closed
+
+@Test5
+Scenario: User can browse job offers
+Given User opens pracuj.pl
+When User logs in
+And User moves to offers
+Then User is on Offers page
+And User can filter
+And page is closed
