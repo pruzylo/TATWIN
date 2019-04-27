@@ -34,6 +34,7 @@ public class StepDefinitions {
     public PageObjectProfileSettingsAccount pageProfileSettingsAccount;
     public PageObjectDocuments pageDocuments;
     public PageObjectOffers pageOffers;
+    public PageObjectFavourite pageFavourite;
 
 
     @Before
@@ -42,10 +43,10 @@ public class StepDefinitions {
         driver= new FirefoxDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(7,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
         pageHome = new PageObjectHome(driver);
-        wait = new WebDriverWait(driver, 3);
+        wait = new WebDriverWait(driver, 5);
         js = (JavascriptExecutor) driver;
     }
 
@@ -138,6 +139,16 @@ public class StepDefinitions {
     @Then("^User can add offer to favourites")
     public void user_can_add_offer_to_favourites() throws Throwable {
         pageOffers.addToFav();
+    }
+
+    @When("^User moves to favourites$")
+    public void user_moves_to_favourites() throws Throwable {
+        pageFavourite = pageAfterLogin.ProfileDropListFavouriteClick();
+    }
+
+    @Then("^User is on Favourites page$")
+    public void user_is_on_Favourites_page() throws Throwable {
+        pageFavourite.AssertUrl();
     }
 
 }

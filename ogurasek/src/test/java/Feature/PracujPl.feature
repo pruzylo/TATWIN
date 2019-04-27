@@ -50,3 +50,10 @@ And User moves to offers
 Then User is on Offers page
 And User can add offer to favourites
 And page is closed
+
+@Test7
+Scenario: User can browse saved offers
+Given User opens pracuj.pl
+When User logs in
+And User moves to favourites
+Then User is on Favourites page

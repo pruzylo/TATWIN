@@ -28,6 +28,9 @@ public class PageObjectAfterLogin extends PageObject{
     @FindBy(xpath = "//a[@data-shared-ga='menu##userMenu##cv']")
     public WebElement profileDropListDocuments;
 
+    @FindBy(xpath = "//a[@data-shared-ga='menu##userMenu##ulubione']")
+    public WebElement profileDropListFavourite;
+
     @FindBy(xpath = "//a[@data-test='myFilesTab']")
     public WebElement sideMenuDocuments;
 
@@ -53,6 +56,13 @@ public class PageObjectAfterLogin extends PageObject{
     public PageObjectDocuments SideMenuDocumentsClick(){
         wait.until(ExpectedConditions.visibilityOf(sideMenuDocuments)).click();
         return new PageObjectDocuments(driver);
+    }
+
+    public PageObjectFavourite ProfileDropListFavouriteClick() throws InterruptedException {
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(profileDropList)).click();
+        profileDropListFavourite.click();
+        return new PageObjectFavourite(driver);
     }
 
     public PageObjectOffers OffersClick(){
