@@ -57,3 +57,25 @@ Given User opens pracuj.pl
 When User logs in
 And User moves to favourites
 Then User is on Favourites page
+And User can remove offer from favourites
+And page is closed
+
+@Test8
+Scenario: User can calculate salary
+Given User opens pracuj.pl
+When User logs in
+And User moves to Income page
+And User moves to Calculator page
+Then User is on Calculator page
+And User can calculate basic income
+And page is closed
+
+@Test8A
+Scenario: User can calculate salary advanced
+Given User opens pracuj.pl
+When User logs in
+And User moves to Income page
+And User moves to Calculator Advanced page
+Then User is on Calculator Advanced page
+And User can calculate advanced income
+And page is closed

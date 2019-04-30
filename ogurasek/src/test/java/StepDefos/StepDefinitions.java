@@ -35,6 +35,9 @@ public class StepDefinitions {
     public PageObjectDocuments pageDocuments;
     public PageObjectOffers pageOffers;
     public PageObjectFavourite pageFavourite;
+    public PageObjectIncome pageIncome;
+    public PageObjectCalcBasic pageCalcBasic;
+    public PageObjectCalcAdvance pageCalcAdvance;
 
 
     @Before
@@ -149,6 +152,48 @@ public class StepDefinitions {
     @Then("^User is on Favourites page$")
     public void user_is_on_Favourites_page() throws Throwable {
         pageFavourite.AssertUrl();
+    }
+
+    @Then("^User can remove offer from favourites")
+    public void user_can_remove_offer_from_favourites() throws Throwable {
+        pageFavourite.RemoveFavClick();
+    }
+
+    @When("^User moves to Income page$")
+    public void user_moves_to_Income_page() throws Throwable {
+        pageIncome = pageAfterLogin.IncomeClick();
+    }
+
+    @When("^User moves to Calculator page$")
+    public void user_moves_to_Calculator_page() throws Throwable {
+        pageCalcBasic = pageIncome.CalculatorBasicClick();
+    }
+
+    @Then("^User is on Calculator page$")
+    public void user_is_on_Calculator_page() throws Throwable {
+        pageCalcBasic.AssertUrl();
+    }
+
+    @Then("^User can calculate basic income")
+    public void user_can_calculate_basic_income() throws Throwable {
+        pageCalcBasic.CalculateIncome("4000");
+    }
+
+    @When("^User moves to Calculator Advanced page$")
+    public void user_moves_to_Calculator_Advanced_page() throws Throwable {
+        pageCalcAdvance = pageIncome.CalculatorAdvanceClick();
+        Thread.sleep(1500);
+    }
+
+    @Then("^User is on Calculator Advanced page$")
+    public void user_is_on_Calculator_Advanced_page() throws Throwable {
+        pageCalcAdvance.AssertUrl();
+
+    }
+
+    @Then("^User can calculate advanced income")
+    public void user_can_calculate_advanced_income() throws Throwable {
+        pageCalcAdvance.CalculateAdvancedMandateIncome("4000");
     }
 
 }

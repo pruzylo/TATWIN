@@ -37,6 +37,9 @@ public class PageObjectAfterLogin extends PageObject{
     @FindBy(xpath = "//a[@data-shared-ga='menu##menu##oferty_pracy']")
     public WebElement offersTab;
 
+    @FindBy(xpath = "//a[@data-shared-ga='menu##menu##zarobki']")
+    public WebElement incomeTab;
+
     public void zawodowyClick(){
         zawodowy.click();
     }
@@ -68,6 +71,11 @@ public class PageObjectAfterLogin extends PageObject{
     public PageObjectOffers OffersClick(){
         offersTab.click();
         return new PageObjectOffers(driver);
+    }
+
+    public PageObjectIncome IncomeClick(){
+        incomeTab.click();
+        return new PageObjectIncome(driver);
     }
 
 }
