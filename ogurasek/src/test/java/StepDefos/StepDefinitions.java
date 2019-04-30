@@ -38,16 +38,17 @@ public class StepDefinitions {
     public PageObjectIncome pageIncome;
     public PageObjectCalcBasic pageCalcBasic;
     public PageObjectCalcAdvance pageCalcAdvance;
+    public PageObjectFirstJob pageFirstJob;
 
 
     @Before
     public void BeforeTest() {
         System.setProperty(Property.WebDriverName, Property.WebDriverPath);
-        driver= new FirefoxDriver();
+        driver = new FirefoxDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         pageHome = new PageObjectHome(driver);
         wait = new WebDriverWait(driver, 5);
         js = (JavascriptExecutor) driver;
@@ -61,7 +62,7 @@ public class StepDefinitions {
     @When("^User logs in$")
     public void user_logs_in() throws Throwable {
         pageLogin = pageHome.loginClick();
-        pageAfterLogin = pageLogin.loginUser(Property.username,Property.password);
+        pageAfterLogin = pageLogin.loginUser(Property.username, Property.password);
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='onesignal-popover-cancel-button']"))).click();
         } catch (Exception e) {
@@ -76,7 +77,7 @@ public class StepDefinitions {
 
     @Then("^user is on professional profile page$")
     public void user_is_on_professional_profile_page() throws Throwable {
-        Assert.assertEquals(driver.getCurrentUrl(),"https://profil.pracuj.pl/");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://profil.pracuj.pl/");
     }
 
     @Then("^page is closed$")
@@ -88,7 +89,7 @@ public class StepDefinitions {
     @Then("^user is logged in$")
     public void user_is_logged_in() throws Throwable {
 
-             Assert.assertEquals("https://www.pracuj.pl/apps/#/konto/rekomendowane-oferty", driver.getCurrentUrl());
+        Assert.assertEquals("https://www.pracuj.pl/apps/#/konto/rekomendowane-oferty", driver.getCurrentUrl());
     }
 
     @Then("^User moves to settings$")
@@ -196,6 +197,21 @@ public class StepDefinitions {
         pageCalcAdvance.CalculateAdvancedMandateIncome("4000");
     }
 
+    @When("^User moves to First Job page$")
+    public void user_moves_to_First_Job_page() throws Throwable {
+        pageFirstJob = pageAfterLogin.FirstJobClick();
+        Thread.sleep(1500);
+    }
+
+    @Then("^User is on First Job page$")
+    public void user_is_on_First_Job_page() throws Throwable {
+        pageFirstJob.AssertUrl();
+    }
+
+    @Then("^User can find offer")
+    public void user_can_find_offer() throws Throwable {
+        pageOffers.SearchOffer("Automation tester", "Poznań");
+    }
 }
 
 

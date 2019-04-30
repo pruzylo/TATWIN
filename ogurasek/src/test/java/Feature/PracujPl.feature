@@ -79,3 +79,20 @@ And User moves to Calculator Advanced page
 Then User is on Calculator Advanced page
 And User can calculate advanced income
 And page is closed
+
+@Test9
+Scenario: User can find first job
+Given User opens pracuj.pl
+When User logs in
+And User moves to First Job page
+And User is on First Job page
+And page is closed
+
+@Test10
+Scenario: User can browse job offers by input
+Given User opens pracuj.pl
+When User logs in
+And User moves to offers
+Then User is on Offers page
+And User can find offer
+And page is closed

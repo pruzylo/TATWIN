@@ -29,6 +29,17 @@ public class PageObjectOffers extends PageObject {
     @FindBy(xpath = "//button[@class='offer-actions__favs-trigger']")
     public WebElement addToFavBtn;
 
+    @FindBy(xpath = "//input[@class='keyword__field']")
+    public WebElement keyWordInput;
+
+    @FindBy(xpath = "//input[@class='workplace__field']")
+    public WebElement locationInput;
+
+    @FindBy(xpath = "//button[@class='form-send__element']")
+    public WebElement searchOfferBtn;
+
+
+
 
     public void assertUrl(){
         Assert.assertEquals("https://www.pracuj.pl/praca", driver.getCurrentUrl());
@@ -48,5 +59,11 @@ public class PageObjectOffers extends PageObject {
 
     public void addToFav() {
         addToFavBtn.click();
+    }
+
+    public void SearchOffer(String position, String location){
+        keyWordInput.sendKeys(position);
+        locationInput.sendKeys(location);
+        searchOfferBtn.click();
     }
 }
