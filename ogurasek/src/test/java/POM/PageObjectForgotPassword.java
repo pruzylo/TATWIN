@@ -13,13 +13,13 @@ public class PageObjectForgotPassword  extends PageObject{
     }
 
     @FindBy(xpath = "//input[@class=\"egkVq\"]")
-    public WebElement mailTxt;
+    private WebElement mailTxt;
 
     @FindBy(xpath = "//button[@class=\"_1x66a\"]")
-    public WebElement sendBtn;
+    private WebElement sendBtn;
 
     @FindBy(xpath = "//*[@title='Przejdź do strony głównej serwisu']")
-    public WebElement homeBtn;
+    private WebElement homeBtn;
 
     public void enterEmail(String email){
         mailTxt.sendKeys(email);

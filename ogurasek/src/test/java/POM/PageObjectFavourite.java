@@ -13,7 +13,7 @@ public class PageObjectFavourite extends PageObject {
     String url = "https://www.pracuj.pl/apps/#/konto/zapisane-oferty";
 
     @FindBy(xpath = "//*[@data-test='removeSavedOfferBtn']")
-    public WebElement removeFavBtn;
+    private WebElement removeFavBtn;
 
     public void AssertUrl(){
         Assert.assertEquals(url, driver.getCurrentUrl());

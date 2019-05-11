@@ -72,7 +72,7 @@ public class StepDefinitions {
 
     @When("^User moves to professional profile$")
     public void user_moves_to_professional_prifle() throws Throwable {
-        wait.until(ExpectedConditions.visibilityOf(pageAfterLogin.zawodowy)).click();
+        pageAfterLogin.zawodowyClick();
     }
 
     @Then("^user is on professional profile page$")

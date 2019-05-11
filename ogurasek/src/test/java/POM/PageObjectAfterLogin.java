@@ -17,31 +17,31 @@ public class PageObjectAfterLogin extends PageObject{
     WebDriverWait wait  = new WebDriverWait(driver, 10);
 
     @FindBy(xpath = "//a[@data-test='userProfileTab']")
-    public WebElement zawodowy;
+    private WebElement zawodowy;
 
     @FindBy(xpath = "//a[@data-test='settingsTab']")
-    public WebElement settingsBtn;
+    private WebElement settingsBtn;
 
     @FindBy(xpath = "//*[@data-test='userAccount']")
-    public WebElement profileDropList;
+    private WebElement profileDropList;
 
     @FindBy(xpath = "//a[@data-shared-ga='menu##userMenu##cv']")
-    public WebElement profileDropListDocuments;
+    private WebElement profileDropListDocuments;
 
     @FindBy(xpath = "//a[@data-shared-ga='menu##userMenu##ulubione']")
-    public WebElement profileDropListFavourite;
+    private WebElement profileDropListFavourite;
 
-    @FindBy(xpath = "//a[@data-test='myFilesTab']")
-    public WebElement sideMenuDocuments;
+    @FindBy(xpath = "//a[@data-test='myFilesTab']") 
+    private WebElement sideMenuDocuments;
 
     @FindBy(xpath = "//a[@data-shared-ga='menu##menu##oferty_pracy']")
-    public WebElement offersTab;
+    private WebElement offersTab;
 
     @FindBy(xpath = "//a[@data-shared-ga='menu##menu##zarobki']")
-    public WebElement incomeTab;
+    private WebElement incomeTab;
 
     @FindBy(xpath = "//a[@data-shared-ga='menu##menu##student']")
-    public WebElement firstJobTab;
+    private WebElement firstJobTab;
 
     public void zawodowyClick(){
         zawodowy.click();

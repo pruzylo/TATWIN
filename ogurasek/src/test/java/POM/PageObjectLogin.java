@@ -12,22 +12,22 @@ public class PageObjectLogin extends PageObject{
     }
 
     @FindBy(xpath = "//*[@title='Przejdź do strony głównej serwisu']")
-    public WebElement homeBtn;
+    private WebElement homeBtn;
 
     @FindBy(xpath = "//input[@class='egkVq' and @data-test='input-email']")
-    public WebElement userTxt;
+    private WebElement userTxt;
 
     @FindBy(xpath = "//input[@class=\"egkVq\" and @data-test=\"input-password\"]")
-    public WebElement passTxt;
+    private WebElement passTxt;
 
     @FindBy(className = "_19V_Q")
-    public WebElement loginSubmitBtn;
+    private WebElement loginSubmitBtn;
 
     @FindBy(xpath = "//*[@class=\"_1Ab5J\"]")
-    public WebElement forgetBtn;
+    private WebElement forgetBtn;
 
     @FindBy(xpath = "//button[@title='Pokaż hasło']")
-    public WebElement hideBtn;
+    private WebElement hideBtn;
 
 
     public PageObjectAfterLogin loginUser(String username, String password) throws InterruptedException {

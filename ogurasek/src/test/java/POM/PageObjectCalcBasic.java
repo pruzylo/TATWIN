@@ -11,9 +11,9 @@ public class PageObjectCalcBasic extends PageObject{
     }
 
     @FindBy(xpath = "//input[@id='calculator-salary']")
-            public WebElement incomeInput;
+    private WebElement incomeInput;
     @FindBy(xpath = "//input[@id='main-calculator-button']")
-    public WebElement countBtn;
+    private WebElement countBtn;
 
 
     String url = "https://zarobki.pracuj.pl/kalkulator-wynagrodzen";

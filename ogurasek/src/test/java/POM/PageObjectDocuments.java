@@ -13,10 +13,10 @@ public class PageObjectDocuments extends PageObject {
     }
 
     @FindBy(xpath = "//span[@data-test='deleteFileBtn']")
-    public WebElement deleteDocBtn;
+    private WebElement deleteDocBtn;
 
     @FindBy(xpath = "//button[@data-test='CancelBtn']")
-    public WebElement cancelDeletionBtn;
+    private WebElement cancelDeletionBtn;
 
     public void DeleteDocTry(){
         deleteDocBtn.click();

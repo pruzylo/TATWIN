@@ -12,31 +12,31 @@ public class PageObjectOffers extends PageObject {
     }
 
     @FindBy(xpath = "//*[@data-test='category-filter-button']")
-    public WebElement categoryFilter;
+    private WebElement categoryFilter;
 
     @FindBy(xpath = "//*[contains(text(),'Bankowość')]")
-    public WebElement categoryBank;
+    private WebElement categoryBank;
 
     @FindBy(xpath = "//*[@class='filters-footer__search-button']")
-    public WebElement searchBtn;
+    private WebElement searchBtn;
 
     @FindBy(xpath = "//button[@data-test='position-filter-button']")
-    public WebElement positionFilter;
+    private WebElement positionFilter;
 
     @FindBy(xpath = "//label[@class='employments-type-item__label' and @for='et-4']")
-    public WebElement positionSpec;
+    private WebElement positionSpec;
 
     @FindBy(xpath = "//button[@class='offer-actions__favs-trigger']")
-    public WebElement addToFavBtn;
+    private WebElement addToFavBtn;
 
     @FindBy(xpath = "//input[@class='keyword__field']")
-    public WebElement keyWordInput;
+    private WebElement keyWordInput;
 
     @FindBy(xpath = "//input[@class='workplace__field']")
-    public WebElement locationInput;
+    private WebElement locationInput;
 
     @FindBy(xpath = "//button[@class='form-send__element']")
-    public WebElement searchOfferBtn;
+    private WebElement searchOfferBtn;
 
 
 

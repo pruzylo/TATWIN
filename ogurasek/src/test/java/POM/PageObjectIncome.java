@@ -10,9 +10,9 @@ public class PageObjectIncome extends PageObject{
     }
 
     @FindBy(xpath = "//a[contains(@href,'/kalkulator-wynagrodzen')]")
-    public WebElement calculatorBasic;
+    private WebElement calculatorBasic;
     @FindBy(xpath = "//a[contains(@href,'/zaawansowany-kalkulator-wynagrodzen')]")
-    public WebElement calculatorAdvance;
+    private WebElement calculatorAdvance;
 
     public PageObjectCalcBasic CalculatorBasicClick(){
         calculatorBasic.click();

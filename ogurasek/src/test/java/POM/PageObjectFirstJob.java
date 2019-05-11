@@ -13,7 +13,7 @@ public class PageObjectFirstJob extends PageObject{
 
 
 
-    String url = "https://www.pracuj.pl/praca?et=3%2c1";
+    private String url = "https://www.pracuj.pl/praca?et=3%2c1";
 
 
 

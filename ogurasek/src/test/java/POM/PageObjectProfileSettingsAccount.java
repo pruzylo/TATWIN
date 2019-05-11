@@ -11,19 +11,19 @@ public class PageObjectProfileSettingsAccount extends PageObject{
     }
 
     @FindBy(xpath = "//a[@data-test='manageAccountTab']")
-    public WebElement accountTab;
+    private WebElement accountTab;
 
     @FindBy(xpath = "//input[@data-test='newUserEmail']")
-    public WebElement newEmaildTxt;
+    private WebElement newEmaildTxt;
 
     @FindBy(xpath = "//input[@data-test='currentUserPassword']")
     public WebElement oldPasswordTxt;
 
     @FindBy(xpath = "//input[@data-test='newUserPassword']")
-    public WebElement newPasswordTxt;
+    private WebElement newPasswordTxt;
 
     @FindBy(xpath = "//button[@data-test='changeUserPasswordButton']")
-    public WebElement changePasswordBtn;
+    private WebElement changePasswordBtn;
 
     public void changePassword(String oldPassword, String newPassword){
         oldPasswordTxt.sendKeys(oldPassword);

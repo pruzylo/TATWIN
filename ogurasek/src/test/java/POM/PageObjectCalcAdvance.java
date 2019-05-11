@@ -11,16 +11,16 @@ public class PageObjectCalcAdvance extends PageObject{
         super(driver);
     }
 
-    String url = "https://zarobki.pracuj.pl/zaawansowany-kalkulator-wynagrodzen";
+    private String url = "https://zarobki.pracuj.pl/zaawansowany-kalkulator-wynagrodzen";
 
     @FindBy(xpath = "//a[contains(@href, '#advanceMandateContract')]")
-    public WebElement mandateContractTab;
+    private WebElement mandateContractTab;
 
     @FindBy(xpath = "//input[@id='calc--mandate-contract-different-salary-main']")
-    public WebElement mandateContractIncomeInput;
+    private WebElement mandateContractIncomeInput;
 
     @FindBy(xpath = "//input[@class='btn btn-secondary js-mandate-contract-calculator-button']")
-    public WebElement mandateContractCountBtn;
+    private WebElement mandateContractCountBtn;
 
     public void CalculateAdvancedMandateIncome(String inc) throws InterruptedException {
         mandateContractTab.click();

@@ -14,22 +14,22 @@ public class PageObjectRegister extends PageObject{
     }
 
     @FindBy(xpath = "//*[@class=\"logo\"]")
-    public WebElement homeBtn;
+    private WebElement homeBtn;
 
     @FindBy(xpath = "//input[@class=\"egkVq\" and @data-test=\"input-email\"]")
-    public WebElement userTxt;
+    private WebElement userTxt;
 
     @FindBy(xpath = "//div[@class=\"_7jlJY _3xZ9L\"]/a[@title=\"Regulamin\"]")
-    public WebElement regulaminBox;
+    private WebElement regulaminBox;
 
     @FindBy(xpath = "//input[@class=\"egkVq\" and @data-test=\"input-password\"]")
-    public WebElement passTxt;
+    private WebElement passTxt;
 
     @FindBy(xpath = "//label[@class=\"_34dTT _1EX2X\"]/input[@class=\"_27a29\"]")
-    public WebElement acceptTick;
+    private WebElement acceptTick;
 
     @FindBy(xpath = "//button[@class = '_1OR2h']")
-    public WebElement registerBtn;
+    private WebElement registerBtn;
 
     public void registerData(String username, String password){
         userTxt.sendKeys(username);

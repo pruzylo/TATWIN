@@ -11,7 +11,7 @@ public class PageObjectProfileSettings extends PageObject{
     }
 
     @FindBy(xpath = "//a[@data-test='manageAccountTab']")
-    public WebElement accountTab;
+    private WebElement accountTab;
 
 
 
