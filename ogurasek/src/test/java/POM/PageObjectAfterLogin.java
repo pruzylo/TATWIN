@@ -31,7 +31,7 @@ public class PageObjectAfterLogin extends PageObject{
     @FindBy(xpath = "//a[@data-shared-ga='menu##userMenu##ulubione']")
     private WebElement profileDropListFavourite;
 
-    @FindBy(xpath = "//a[@data-test='myFilesTab']") 
+    @FindBy(xpath = "//a[@data-test='myFilesTab']")
     private WebElement sideMenuDocuments;
 
     @FindBy(xpath = "//a[@data-shared-ga='menu##menu##oferty_pracy']")

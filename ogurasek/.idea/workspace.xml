@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5edbdff9-e021-4dc0-9d7a-04465f6914eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectAfterLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectAfterLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectAfterSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectAfterSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectCalcAdvance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectCalcAdvance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectCalcBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectCalcBasic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectDocuments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectDocuments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectFavourite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectFavourite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectFirstJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectFirstJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectForgotPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectIncome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectIncome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectOffers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectOffers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectProfileSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectProfileSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectProfileSettingsAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectProfileSettingsAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POM/PageObjectRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POM/PageObjectRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/StepDefos/StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StepDefos/StepDefinitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunners/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunners/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/ogurasek.kotlin_module" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/POM/PageObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -63,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/POM/PageObjectAfterLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="33" column="51" lean-forward="true" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+            <state relative-caret-position="153">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
               <folding>
                 <element signature="e#423#424#0" expanded="true" />
                 <element signature="e#452#453#0" expanded="true" />
@@ -516,13 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/POM/PageObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Feature/PracujPl.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1410">
@@ -546,12 +520,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/POM/PageObjectAfterLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="33" column="51" lean-forward="true" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+        <state relative-caret-position="153">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
           <folding>
             <element signature="e#423#424#0" expanded="true" />
             <element signature="e#452#453#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/POM/PageObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
         </state>
       </provider>
     </entry>
